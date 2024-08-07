@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+        
+        <div class="card-container">
+            
+            <div class="card">
+                <img src="{% static 'images/image 1.jpeg' %}" alt="Image 1">
+                <h3>Card 1</h3>
+                <div class="card-links">
+                    <a href="data page.html">Data</a>
+                    <a href="https://ee.kobotoolbox.org/i/P4veuQtB">Form</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{%static 'images/image 2.jpeg' %}" alt="Image 2">
+                <h3>Card 2</h3>
+                <div class="card-links">
+                    <a href="data page.html">Data</a>
+                    <a href="https://ee.kobotoolbox.org/i/P4veuQtB">Form</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{%static 'images/image 3.jpeg' %}" alt="Image 3">
+                <h3>Card 3</h3>
+                <div class="card-links">
+                    <a href="data page.html">Data</a>
+                    <a href="https://ee.kobotoolbox.org/i/P4veuQtB">Form</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{%static 'images/image 4.jpeg' %}" alt="Image 4">
+                <h3>Card 4</h3>
+                <div class="card-links">
+                    <a href="data page.html">Data</a>
+                    <a href="https://ee.kobotoolbox.org/i/P4veuQtB">Form</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <img src="{%static 'images/image 5.jpeg' %}" alt="Image 5">
+                <h3>Card 5</h3>
+                <div class="card-links">
+                    <a href="data page.html">Data</a>
+                    <a href="https://ee.kobotoolbox.org/i/P4veuQtB">Form</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{%static 'images/image 6.jpeg' %}" alt="Image 6">
+                <h3>Card 6</h3>
+                <div class="card-links">
+                    <a href="data page.html">Data</a>
+                    <a href="https://ee.kobotoolbox.org/i/P4veuQtB">Form</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{%static 'images/image 7.jpeg' %}" alt="Image 7">
+                <h3>Card 7</h3>
+                <div class="card-links">
+                    <a href="data page.html">Data</a>
+                    <a href="https://ee.kobotoolbox.org/i/P4veuQtB">Form</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/image 8.jpeg' %}" alt="Image 8">
+                <h3>Card 8</h3>
+                <div class="card-links">
+                    <a href="data page.html">Data</a>
+                    <a href="https://ee.kobotoolbox.org/i/P4veuQtB">Form</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    <body>
+<div class="popup" id="loginSignupPopup" aria-hidden="true" role="dialog" aria-labelledby="formTitle" aria-describedby="userForm">
+        <div class="form-container">
+            <h2 id="formTitle">Login</h2>
+            <form id="userForm" aria-labelledby="formTitle">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <div id="userTypeSelection" class="hidden">
+                    <label>
+                        <input type="radio" name="userType" value="admin" id="adminOption"> Admin
+                    </label>
+                    <label>
+                        <input type="radio" name="userType" value="client"> Client
+                    </label>
+                    <label>
+                        <input type="radio" name="userType" value="clerk"> Clerk
+                    </label>
+                </div>
+                <button type="submit" id="submitBtn">Login</button>
+            </form>
+            <p id="toggleForm">Don't have an account? <span onclick="toggleForm()">Sign Up</span></p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="welcome-section">
+            <div class="welcome-text">
+                <h1>Welcome to the Data Portal</h1>
+                <p>Welcome to the Data Portal, your centralized hub for accessing, managing, and submitting data. Our portal is designed to facilitate efficient data management and provide you with easy access to the information you need.</p>
+            </div>
+            <img src="{%static 'images/data photo.jpeg'%}" alt="Welcome Image">
+        </div>
+
+<script>
+        document.getElementById('openPopupBtn').addEventListener('click', function() {
+            document.getElementById('loginSignupPopup').classList.toggle('open');
+        });
+
+        function toggleForm() {
+            const formTitle = document.getElementById('formTitle');
+            const userTypeSelection = document.getElementById('userTypeSelection');
+            if (formTitle.textContent === 'Login') {
+                formTitle.textContent = 'Sign Up';
+                userTypeSelection.classList.remove('hidden');
+                document.getElementById('submitBtn').textContent = 'Sign Up';
+            } else {
+                formTitle.textContent = 'Login';
+                userTypeSelection.classList.add('hidden');
+                document.getElementById('submitBtn').textContent = 'Login';
+            }
+        }
+    </script>
+
+</body>
+{% endif %}
+{% endblock %}
+</html>
+
